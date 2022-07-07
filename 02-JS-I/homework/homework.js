@@ -254,7 +254,6 @@ function esVocal(letra){
 }
 
 
-
 // No modificar nada debajo de esta línea
 // --------------------------------
 
