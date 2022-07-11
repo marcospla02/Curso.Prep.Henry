@@ -97,10 +97,11 @@ function verificarPassword(usuario, password) {
   // Comprueba si la "password" enviada coincide con la propiedad "password" del objeto "usuario"
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
-  // // Tu código:
+  // // Tu código:                             // ver video 11/7 para saber cuando le pongo comillas
+                                              // y cuando no, por la hora y pico 
   
-      if (usuario["password"]===password){
-       return true 
+      if (usuario["password"]===password){     
+        return true                             
       } else {
         return false
       }
@@ -113,7 +114,7 @@ function actualizarPassword(usuario, nuevaPassword) {
   // Tu código:
   
   usuario.password = nuevaPassword;   //porque si pongo usuario[password] no me lo toma?
-  return usuario;
+  return usuario;                     // porque si o si le tengo que poner las comillas, sino no melo toma con el bracket notation
 
 }
 
