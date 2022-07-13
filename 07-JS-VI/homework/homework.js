@@ -5,8 +5,8 @@ function mayuscula(nombre) {
   //ej: Recibe "mario" ----> Devuelve "Mario"
   //Tu código:
   
-  return nombre[0].toUpperCase() + nombre.slice(1);
-}
+  return nombre[0].toUpperCase() + nombre.slice(1); // nombre lo pongo con el indicce 0 porque necesito la cambiar la priimer letra
+}                                                    // .slice(1) lo que hace es que me corta la palabra y lo devuleve, se pone en 1 porque quiero que me devuelva desde la posicion 1 en adelante.(porque la primera la transforme en mayuscula)
 
 function invocarCallback(cb) {
   // Invoca al callback `cb`
@@ -28,19 +28,20 @@ function sumarArray(numeros, cb) {
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
   //Tu código:
-  
- var sumo = numeros.reduce( function(acumulador, elemento){   
-          return acumulador + elemento
+  //tambien lo puedo hacer con for
+
+  var sumo = numeros.reduce( function(acumulador, elemento){   
+    return acumulador + elemento
   },0);
-       return cb(sumo);
-}
+    return cb(sumo); 
+ }
 
 function forEach(array, cb) {
   // Itera sobre la matriz "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada valor en la matriz)
   //Tu código:
   
-  array.forEach(function (elemento, indice){
+  array.forEach(function (elemento){
          cb(elemento)
   });
 
@@ -66,8 +67,8 @@ function filter(array) {
   //Tu código:
 
 var newArray = array.filter(function(palabra){
-    return palabra[0] ==='a'
-})
+    return palabra[0] ==='a'                    // este la letra en la primer posicion
+})                                              // por eso pongo subindice 0 y que sea estrictamente igual
   return newArray;
   
 }
