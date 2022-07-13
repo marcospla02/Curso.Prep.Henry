@@ -189,8 +189,8 @@ function tablaDelSeis(){
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
   var tbl6=[];
-  for (var x=0;x<11; x++){
-      tbl6.push(x*6)
+  for (var x=0;x<11; x++){    // definimos un array vacio porqeu ahi se van a guardar los resultados de los numero.
+      tbl6.push(x*6)          // y hacemos el for, porque nos pide que llegue hasta la respuesta del 60, por lo que tiene que recorrer del 0 al 10 multiplicando por 6
   }
   return tbl6 
 }
@@ -209,9 +209,9 @@ function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
-  var m=0; 
-  do {
-    m = m+1; 
+  var m=0;            //m son la cantidad de vueltas y ponemos el mas uno para que vaya incrementando la cantidad de sus vueltas hasta que llega a 8
+  do {                // ponemos numero +=5 porque hay que ir incremetandolo en 5.
+    m = m+1;          // el do significa hacer, y el while mientras. entonces esto de diria hacer num+=5 mientras m sea menor que 8 (serian vueltas)
     numero += 5;
   }
    while (m<8);
