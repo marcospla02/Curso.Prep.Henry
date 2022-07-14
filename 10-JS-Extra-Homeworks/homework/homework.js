@@ -1,5 +1,7 @@
 // No cambies los nombres de las funciones.
 
+const { eliminarPropiedad } = require("../../05-JS-IV/homework/homework");
+
 function deObjetoAmatriz(objeto){
   // Escribe una función que convierta un objeto en una matriz, donde cada elemento representa 
   // un par clave-valor en forma de matriz.
@@ -75,35 +77,66 @@ function asAmirror(str) {
                                                   // con .join(' ') saco las palabras del array(porque lo que hace join es juntar/concatenar todo) y las separo con 'conUnEspacio'
 } 
 
-
 function capicua(numero){
   //Escribe una función, la cual recibe un número y determina si es o no capicúa.
-  //La misma debe retornar: "Es capicua" si el número se número que se lee igual de 
+  //La misma debe retornar: "Es capicua" si el número se lee igual de 
   //izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   //Escribe tu código aquí
-}
+  // 1 1 1 1
+  // 0 1 2 3 --> [i]                         obs: tiene que ser i igual al largo del numero que me pasan -1 para que pueda arrancar del ultimo numero que tiene esa string
+  var numeroAlReves=''                      // es mayor o igual a cero para que se corte ahi, sino seguiria hasta el final, y es -- para que vaya retrocediendo
+  var numero1= numero.toString()                    //¿porque tiene que ser afuera el if?
+  for (let i = numero1.length-1; i>=0; i--) {       // ¿numero1 no tendria que ser [i-1]? 
+      numeroAlReves+= numero1[i]                    //¿porque la tengo que pasar a string?
+  }                                                 //
+  if(numero1 === numeroAlReves){
+    return 'Es capicua'
+  } else{
+    return 'No es capicua'
+  }
+  }
 
 
 function deleteAbc(cadena){
   //Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   //y devuelva la versión modificada o la misma cadena, en caso de contener dichas letras.
   //Escribe tu código aquí
+  // ejemplo 'marcos' -->mros
+ var canueva= '';
+ for ( var i=0; i <cadena.length; i++){
+    if(cadena[i] !== 'a' && cadena[i] !== 'b' && cadena[i] !== 'c') {  // si yo pongo que sea estictamente igual, lo que hace es sumarlo y recibir abc, sin borrarlo
+      canueva+= cadena[i]                                              // que explique esto y porque no usa el delete. yo lo habi pensado con todo estricta// igual.
+    }                                                 //usammo el and, porque cadena tien que ser distinta a todas. ponemos que sea distinta porque nos va a sumar todas las letras de cadena, menos las que dijimos.
+}                                                     // para formar la nueva cadena, si se encunetra con 'a' o 'b' o 'c', nos las suma. por eso es que no hace falta poner delete, porque como no me sumam esas letras en la nueva cadena no va a aparecer.
+return canueva;
+
 }
-
-
 function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
+  return arr.sort(function(a,b){  // el sort ordena, ene este caso le estamos pidiendo que nos ordene de menor longitud a mayor longitud
+    return a.length - b.length    // entonces le hago length(longitud) de un elemento del array menos el otro. el sort por dentro recorre todo el array.
+  })                              // el - es para comparar
+
 }
-
-
 function buscoInterseccion(arreglo1, arreglo2){
   //Existen dos arrays, cada uno con 5 números. A partir de ello, escribir una función que permita 
   //retornar un nuevo array con la intersección de ambos elementos. (Ej: [4,2,3] unión [1,3,4] = [3,4].
   //Si no tienen elementos en común, retornar un arreglo vacío.
   //Aclaración: los arreglos no necesariamente tienen la misma longitud
   //Escribe tu código aquí  
+
+  var array= [];                                  // no hace falta aclarar retotnar un arreglo vacio, porque nosotros cuando lo definimos esta vacio y si no cumple con la condicion de if, me lo retorna vacio
+  for (let i = 0; i < arreglo1.length; i++) {     // hacemos dos for, porque hay que recorrer dos arreglos distintos. el push lo uso para que me agregue todo en el array que definimos (a todo me refiero, los mismos numero)
+    for (let e = 0; e < arreglo2.length; e++) {   // los que estoy diciendo al final es que agregue en el array definido el numero que es estrictamente igual al otro arreglo, no impota que arreglo ponga ahi, porque me pide los mismos numero.
+      if(arreglo1[i] === arreglo2[e]) {
+        array.push(arreglo2[e])
+      }
+    }  
+  }
+
+  return array;
 }
 
 
