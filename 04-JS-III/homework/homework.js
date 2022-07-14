@@ -127,8 +127,8 @@ function multiplicarArgumentos() {
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
   var producto=1;
-  if(arguments.length===0)return 0;
-  else{
+  if(arguments.length===0)return 0;              // aca producto sepone en un para que x lo menos sea multiplicado en  1,
+  else{                                          //si poneos cero siempre va a dar cero
     for (let i = 0; i < arguments.length; i++) {
       producto*= arguments[i];  
     }
@@ -141,9 +141,11 @@ function multiplicarArgumentos() {
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
+  // array: [1,43,5,19]
+  //            i 
   var catarr=0;
-  for( let i=0; i<arreglo.length;i++){
-       if(arreglo[i]>18){
+  for( let i=0; i<arreglo.length;i++){    // aca no es que el numero se pone en el array nuevo, cuentas cuantos elementos mayores a 18 tengo
+       if(arreglo[i]>18){                 // por eso hacemos el catarr++, para que se vayan sumando ahi mismo y me retorne la cantidad
           catarr++;
        }  
   }
@@ -156,7 +158,7 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  if(numeroDeDia>1 && numeroDeDia<7){
+  if(numeroDeDia>1 && numeroDeDia<7){  
        return "Es dia Laboral";
   } else {
        if (numeroDeDia==1 || numeroDeDia==7){
@@ -170,9 +172,9 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  var nStr=n.toString();
-  if (nStr[0]==="9"){
-    return true
+  var nStr=n.toString();   // creamos una nueva variable para convertir el numero ene en String.
+  if (nStr[0]==="9"){      // nuemor en String que este en la posicion cer si es estrictamente igual a '9' return true..
+    return true            // en este caso no uso un for, porque como parametro me dan solo un numero.
   } else{
     return false
   }
@@ -183,9 +185,9 @@ function todosIguales(arreglo) {
   //Escriba la función todosIguales, que indique si todos los elementos de un arreglo son iguales:
   //retornar true, caso contrario retornar false.
   //Escribe tu código aquí
-    for (let i = 0; i < arreglo.length -1 ; i++) {   
-          if(arreglo[i] != arreglo[i+1]){                  
-            return false
+    for (let i = 0; i < arreglo.length -1 ; i++) {   // ceamos un for, recorre todo el arreglo y pregunta, si el numero en [i]
+          if(arreglo[i] != arreglo[i+1]){            // es distinto al numero en [i] return false, sino true          
+            return false                             // si no pongo arreglo[i+1] va estar en la misma posicion que el otro, el mas uno es para que avance una posicion.
           }
     } 
     return true
@@ -196,15 +198,15 @@ function mesesDelAño(array) {
   //Dado un array que contiene algunos meses del año desordenados, recorrer el array buscando los meses de 
   // "Enero", "Marzo" y "Noviembre", guardarlo en nuevo array y retornarlo.
   //Si alguno de los meses no está, devolver: "No se encontraron los meses pedidos"
-  // Tu código:
-  var nuevoarray=[];
+  //Escribe tu codigo aqui:
+  var nuevoarray=[];                                // basicamente busco los meses y los guardo en el array vacio que cree
   for (let i = 0; i < array.length; i++) {
      if(array[i]==="Enero" || array[i]==="Marzo" || array[i]==="Noviembre"){
          nuevoarray.push(array[i]);
      } 
-  }
-  if (nuevoarray.length<3){
-    return "No se encontraron los meses pedidos"
+  }                
+  if (nuevoarray.length<3){                       // como dice si alguno de los meses no esta, return no se encontraron, pongo que si
+    return "No se encontraron los meses pedidos"  // el nuevo array tiene menos de tres elementos, false.
   }else{
     return nuevoarray;
   }
@@ -233,7 +235,7 @@ function breakStatement(numero) {
   //devolver: "Se interrumpió la ejecución"
   //Pista: usá el statement 'break'
   // Tu código:
-  
+  // array: [1,3,5,40]
   var array=[];
   
   for (var i = 0; i < 10; i++) {
@@ -262,7 +264,7 @@ function continueStatement(numero) {
   
   var array=[];
    
-  for (var i = 0; i < 10; i++) {
+  for (var i = 0; i < 10; i++) {      // cuando el numero de iteraciones alcanza el 5 sigue de largo no lo suma no hace nada
     
      if(i===5) continue;
      else{
