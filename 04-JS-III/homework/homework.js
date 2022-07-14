@@ -3,7 +3,7 @@
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código: 
-  return array [0]
+  return array [0]   // esto es porque el primer elemento siempre se posiciona el el 0
 
 }
 
@@ -11,15 +11,15 @@ function devolverPrimerElemento(array) {
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
-  return array[array.length -1]
-  
+  return array[array.length -1] //el ultimo elemento se escribe .length - 1 porque si ponemos solo el 
+                                //.length me estaria dando un elemento mas que no existe y me saltaria error.                               
 }
 
 
 function obtenerLargoDelArray(array) {
   // Devuelve el largo de un array
   // Tu código:
-  return array.length
+  return array.length // a diferencia del anterior este me pide el largo del array no el elemento, por eso no le puse el -1 
 
 }
 
@@ -29,10 +29,11 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
-  var newarr=[]
-  for( let i=0;i<array.length;i++){
-    newarr[i]= array[i]+1
-  }
+  // array: [2,3,5,5]
+  var newarr=[]                      //definimos una variable para guardar los numero nuevos ahi
+  for( let i=0;i<array.length;i++){  // y como tengo que recorrer e incremetarlos por uno uso el for
+    newarr[i]= array[i]+1            // pongo el mas uno porque me pide qu elo incremente
+  }                                  // le pongo tambien el indice i al newarr para que me guarde todos los nuevos numeros, sino me guardaria solo el ultimo 
    return newarr;
 
 }
@@ -41,7 +42,7 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
-  array.push(elemento);
+  array.push(elemento); //.push() agrega algo al final del array
   return array;
 }
 
@@ -51,7 +52,7 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
-  array.unshift(elemento);
+  array.unshift(elemento); //agrega al principio
   return array;
 
 }
@@ -63,18 +64,18 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
-   return palabras.join(" ")
-}
+   return palabras.join(" ")   // .join() sirve para que me devuelvan palabras, y con las comillas adentro con un espacio
+}                              // esas palabras  me las separa y no quedan todas pegadas.
 
 
 function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
-  for ( let i =0; i< array.length; i++){
-    if (array[i]===elemento) return true;
-    }
-    return false
+  for ( let i =0; i< array.length; i++){     // aca como no se cuantos elementos hay en el array uso el bucle for para recorre (el array)
+    if (array[i]===elemento) return true;    // y pongo . length porque justamente no se cuando termina
+    }                                        // depsues digo, si el array[i] (en el indice/posicion[i]) es estrictamente igual a elemento dame true sino false
+    return false                             // el triple igual (===) es estrictamente, el doble (==) es mas flexible, y el igual (=) es para asinar.
   }
 
 
@@ -83,11 +84,11 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
-  var en=0
-  for (let i=0; i<numeros.length; i++){
-        en+=numeros[i]; 
-  }
-  return en;
+  var acumulador=0                        // como nos pide que sume los enteros ydevuelva un resultado, pongo un acumulador donde arranca en 0 (para que se vaya sumando)           
+  for (let i=0; i<numeros.length; i++){   // lo mismo que antes, uso el for paar recorrer todos los numero que me den en el parametro
+        acumulador+=numeros[i];           // el i++ sirve paar que el for vaya avanzando en su bucle hasta terminar con la lista,
+  }                                        // si pongo i-- el bucle va a ir para atras.
+  return acumulador;
 
 }
 
@@ -96,12 +97,12 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  var cant=0;
-  var cantfinal=resultadosTest.length
-  for (let i=0; i<resultadosTest.length;i++){
-       cant+=resultadosTest[i];
+  var cant=0;                                // ponemos un acumulador, usamos el bucle for para recorrer los numeros
+  var cantFinalDeNumeros=resultadosTest.length        // para calcular el promedio dividimos con el .length por no sabemos cuantos numero tiene la lista/array
+  for (let i=0; i<resultadosTest.length;i++){     //cantidadfinal de numero, es la cantidad todal que esta en la lista de resultadosTest
+       cant+=resultadosTest[i];                   // defini esa variable para estar mas comodo, sino era lo mismo si ponia promedio= cant/resultadosTest.length;
   }
-  var promedio= cant/cantfinal;
+  var promedio= cant/cantFinalDeNumeros;
    return promedio;
 }
 
@@ -110,10 +111,12 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
-  var numgrande=0;
-  for (let i=0; i<numeros.length;i++){
-        if(numeros[i]>numgrande){
-          numgrande=numeros[i];
+  // numeros: [1,4,2,6]
+  //           i
+  var numgrande=0;                       // acumulador, recorremos con el bucle for. 
+  for (let i=0; i<numeros.length;i++){   // preguntamos si el numero en la posicion i, es mayor al numerogrande que definimos y si es asi 
+        if(numeros[i]>numgrande){        // asignamos el numero que esta en la posicion [i] al numero grande, y va pisando el numero anterior si es que hay uno mas grande mas adelante de la lista
+          numgrande=numeros[i];          // y sino retorna el ultimo que quedo
         }
   }
    return numgrande;
