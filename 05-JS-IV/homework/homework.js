@@ -6,8 +6,8 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
-  var objeto= {
-      nombre: nombre,
+  var objeto= {         // lo del objeto litera. declaramos la variable y hacemor , clave-valor
+      nombre: nombre,   // ponemos la propiedad con el valor. despues hacemos el metodo llamado meow 
       edad: edad,
       meow:function() {
         return "Meow!";
@@ -21,8 +21,8 @@ function agregarPropiedad(objeto, property) {
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
   
-  objeto[property] = null;
-  return objeto;
+  objeto[property] = null;    // uso bracket notation porue le quiero agregar una propiedad nueva a property
+  return objeto;              // si le pongo comillas doy por echo quw se llama property, es por eso que no las pongo.
 
 }
 
@@ -32,7 +32,7 @@ function invocarMetodo(objeto, metodo) {
   // Nada necesita ser devuelto ("returned")
   // Tu código:
 
-  objeto[metodo]()
+  objeto[metodo]()    // para invocar pongo ()
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
@@ -40,7 +40,7 @@ function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
    
-  return objetoMisterioso.numeroMisterioso *5;
+  return objetoMisterioso.numeroMisterioso *5;   // como ya sabemos la propiedad que tiene lo escribimos con dot notation
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -58,8 +58,8 @@ function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
-   
-  var nuevoUsuario= {
+                              
+  var nuevoUsuario= {        //creo el objeto literal.
     nombre: nombre,
     email: email,
     password: password,
@@ -72,7 +72,7 @@ function tieneEmail(usuario) {
   // De lo contratio, devuelve "false"
   // Tu código:
 
-  if (usuario["email"]){
+  if (usuario["email"]){      // si usuario tiene email, devuelvo true 
     return true
   } else {
     return false
@@ -85,9 +85,9 @@ function tienePropiedad(objeto, propiedad) {
   // De lo contrario, devuelve "false"
   // Tu código:
 
-  if (objeto[propiedad]) {       // preguntar lo del key, me hizo confundir 
-    return true
-  } else {
+  if (objeto[propiedad]) {       // preguntar lo del key, me hizo confundir --> falta saber
+    return true                  // como es una variable que nos pasan por paramatro no le pongo las comillas, si le pongo las comillas es lo mismo que escrbir objeto.propiedad
+  } else {                       // que es lo mismo que decirle que propiedad se llama porpiedad, y no es asi
     return false
   }
 
@@ -98,11 +98,11 @@ function verificarPassword(usuario, password) {
   // Devuelve "true" si coinciden
   // De lo contrario, devuelve "false"
   // // Tu código:                             // ver video 11/7 para saber cuando le pongo comillas
-                                              // y cuando no, por la hora y pico 
-  
-      if (usuario["password"]===password){     
-        return true                             
-      } else {
+                                              // y cuando no, por la hora y pico, explicado arriba
+      // esta es la propiedad, esta es la contraseña enviada
+      if (usuario["password"]===password){    // lo que hacemos es, como la propiedad password se escribe password, le pongo los corchtes
+        return true                           // y ademas me esta diciendo si password es igual a la propiedad password. 
+      } else {                                // resumen: si la contraseña escrita por parametro es igual a la propiedad del objeto contraseña.
         return false
       }
   }
@@ -115,7 +115,7 @@ function actualizarPassword(usuario, nuevaPassword) {
   
   usuario.password = nuevaPassword;   //porque si pongo usuario[password] no me lo toma?
   return usuario;                     // porque si o si le tengo que poner las comillas, sino no melo toma con el bracket notation
-
+                                      // respondo: porque la variable no me la pasaron por parametro, pero si existe porque nos da a enteder eso, ya qe nos piden hacer nueva password
 }
 
 function agregarAmigo(usuario, nuevoAmigo) {
@@ -148,13 +148,16 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
+  // posts [{post.likes}]
 
   var suma=0
   for (let i = 0; i < usuario.posts.length; i++) {   // si pongo console.log("suma", suma) en el test me muestra como se esta ejecutando 
        suma+=usuario.posts[i].likes                  // y sirve para ver si hice un error.
-  } 
-      return suma;
-}
+  }           
+      return suma; 
+                                                    // usuario es un objeto que la propiedad es post, que es un array
+}                                                   // al posts lo pongo en [i], para que me busque esa publicaion con esa cantidad de likes y lo sume
+                                                    
 
 function agregarMetodoCalculoDescuento(producto) {
   // Agregar un método (función) al objeto "producto" llamado "calcularPrecioDescuento"
@@ -169,11 +172,11 @@ function agregarMetodoCalculoDescuento(producto) {
   
   // producto: precio,
   // porcentajeDeDescuento: descuento  
-                                      // aca producto ya esta definido, por eso no pongo va producto....
+                                      // aca producto ya esta definido, por eso no pongo producto.precio y defino var preciofinal....
   var preciofinal=0;
   producto.calcularPrecioDescuento = function() {
-      producto.precio;
-      producto.porcentajeDeDescuento;
+      producto.precio;                        //<--  estos dos no hace falta ponerlo, los puse para orientarme mas
+      producto.porcentajeDeDescuento;         //<--
       preciofinal = producto.precio - (producto.precio * producto.porcentajeDeDescuento);
       return preciofinal;
     }
