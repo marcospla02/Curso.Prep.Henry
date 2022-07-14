@@ -90,7 +90,7 @@ function agregarMetodo() {
   //La función agrega un método "datos" a la clase Persona que toma el nombre y la edad de la persona y devuelve: 
   //Ej: "Juan, 22 años"
   Persona.prototype.datos= function(){
-    return this.nombre+  ', '  +this.edad+ ' años';
+    return this.nombre+  ', '  +this.edad+ ' años';   // aca la comillas le pongo un espacio para que las palabras queden separadas, sino queda todo junto
   }
 
 }   
