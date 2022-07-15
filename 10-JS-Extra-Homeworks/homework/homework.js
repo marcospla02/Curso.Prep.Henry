@@ -85,12 +85,12 @@ function capicua(numero){
   // 1 1 1 1
   // 0 1 2 3 --> [i]                         obs: tiene que ser i igual al largo del numero que me pasan -1 para que pueda arrancar del ultimo numero que tiene esa string
   var numeroAlReves=''                      // es mayor o igual a cero para que se corte ahi, sino seguiria hasta el final, y es -- para que vaya retrocediendo
-  var numero1= numero.toString()                    //¿porque tiene que ser afuera el if?--> El if está fuera para que compare con el número una vez se formó numeroAlReves y no cada vez que hace un ciclo. Si lo hiciera dentro del for, llegaría al if, no se cumpliría la condición y retornaría 'no es capicua' para cualquier valor que reciba la función.
-  for (let i = numero1.length-1; i>=0; i--) {       // ¿numero1 no tendria que ser [i-1]? --> (para poner numero1[i-1] no deberia poner el for for el .length - 1. y asi si funcionaria) Recordá que la propiedad .length representa la longitud de una cadena string, pero si la vemos como un arreglo, el primer índice es 0 y el último .length-1. Cuando le asigna a i el valor numero1.length-1 le esta dando la ultima posición de la string, si se le restara 1 a i, estaría representando la ultima posición - 1a posición(es decir, la ante ultima posicion) y estaríamos dejando atrás valores a tratar
-      numeroAlReves+= numero1[i]                    //¿porque la tengo que pasar a string?->El número se pasa a string para que te permita evaluar cada carácter que tenga. Recordá que un string se puede ver como un arreglo de caracteres.
-    }                                               // Ej: numero = 349; 
-    if(numero1 === numeroAlReves){                  // numero.toString() -> '349' -> ['3']['4']['9']                 
-      return 'Es capicua'                           //Esto te permite iterar sobre cada carácter y lograr darle la vuelta al número.
+  var numero1= numero.toString()                //¿porque tiene que ser afuera el if?--> El if está fuera para que compare con el número una vez se formó numeroAlReves y no cada vez que hace un ciclo. Si lo hiciera dentro del for, llegaría al if, no se cumpliría la condición y retornaría 'no es capicua' para cualquier valor que reciba la función.
+  for (let i = numero1.length-1; i>=0; i--) {   // ¿numero1 no tendria que ser [i-1]? --> (para poner numero1[i-1] no deberia poner el for el .length - 1. y tambien deberia cambiar la condicion de finalizacion porque cortria en cero y evaluaria la posicion de cero -1 que esa posicion no esxiste, quedaria i>0. y asi si funcionaria) Recordá que la propiedad .length representa la longitud de una cadena string, pero si la vemos como un arreglo, el primer índice es 0 y el último .length-1. Cuando le asigna a i el valor numero1.length-1 le esta dando la ultima posición de la string, si se le restara 1 a i, estaría representando la ultima posición - 1a posición(es decir, la ante ultima posicion) y estaríamos dejando atrás valores a tratar
+      numeroAlReves+= numero1[i]                //¿porque la tengo que pasar a string?->El número se pasa a string para que te permita evaluar cada carácter que tenga. Recordá que un string se puede ver como un arreglo de caracteres.
+    }                                           // Ej: numero = 349; 
+    if(numero1 === numeroAlReves){              // numero.toString() -> '349' -> ['3']['4']['9']                 
+      return 'Es capicua'                       //Esto te permite iterar sobre cada carácter y lograr darle la vuelta al número.
     } else{
       return 'No es capicua'
     }                                                 
