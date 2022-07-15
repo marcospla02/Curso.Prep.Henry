@@ -25,11 +25,11 @@ function numberOfCharacters(string) {
   //en formato par clave-valor.
   //Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   //Escribe tu código aquí
-  var caracter= {};                               // el caracter esat vacio porque se va completando ahi 
-  for (let i=0; i< string.length; i++) {         // el ! va porque nuestro cracter esta vacio y esa letra nunca la encontramos, entonces decimos si la letra en la string no esta en nuestro caracter, por lo tanto es la primera vez que aparece 
-      if(!caracter[string[i]]){                  // e iniciamos un conteo, el conteo lo inicio en cero y se va a ir sumando de a uno por cada vez que se repita esa letra 
-          caracter[string[i]]=0                  // pregunta:¿ porque se pone con cero la priemra vez?
-      }
+  var caracter= {};                         // el caracter esat vacio porque se va completando ahi 
+  for (let i=0; i< string.length; i++) {    // el ! va porque nuestro cracter esta vacio y esa letra nunca la encontramos, entonces decimos si la letra en la string no esta en nuestro caracter, por lo tanto es la primera vez que aparece 
+      if(!caracter[string[i]]){            // e iniciamos un conteo, el conteo lo inicio en cero y se va a ir sumando de a uno por cada vez que se repita esa letra 
+          caracter[string[i]]=0           // pregunta:¿ porque se pone con cero la priemra vez? --> se pone igual cero porque primero se agrega la letra y despues abajo se empieza a contar y quedaria a:1
+      }                                   
       caracter[string[i]]+=1
     }
     return caracter
@@ -41,14 +41,14 @@ function capToFront(s) {
   //Ejemplo: soyHENRY -> HENRYsoy
   //Escribe tu código aquí
   // holaCAPO           // pregunta, porque no se pone nada adentro del .toUpperCase('aca adentro')
-  
+                        // respuesta: porque cambia la letra del objeto s[i] (en el indice i).
   var may= '';                               //  nuestra variable va vacia porque se va llenadno con las letras para formar a palabra
   var min='';
   for (let i = 0; i < s.length; i++) {  
     if(s[i] === s[i].toUpperCase() ){      // .toUpperCase() --> convierte la letra en mayuscula
       may+= s[i]                          // lo sumamos para que la string se una y forme una palabra.
     } else 
-    min+= s[i]                            // si esa letra no es igual a esa letra en mayuscula sumalo con las ltras minuscula.
+    min+= s[i]  // agrega la 's' + 'o' +'y'  // si esa letra no es igual a esa letra en mayuscula sumalo con las ltras minuscula.
   }
     return (may + min)                    // sumo las mayusculas primero porque me pide eso el ejercicio, y se suman para que se forme la palabra.        
   
@@ -85,15 +85,16 @@ function capicua(numero){
   // 1 1 1 1
   // 0 1 2 3 --> [i]                         obs: tiene que ser i igual al largo del numero que me pasan -1 para que pueda arrancar del ultimo numero que tiene esa string
   var numeroAlReves=''                      // es mayor o igual a cero para que se corte ahi, sino seguiria hasta el final, y es -- para que vaya retrocediendo
-  var numero1= numero.toString()                    //¿porque tiene que ser afuera el if?
-  for (let i = numero1.length-1; i>=0; i--) {       // ¿numero1 no tendria que ser [i-1]? 
-      numeroAlReves+= numero1[i]                    //¿porque la tengo que pasar a string?
-  }                                                 //
-  if(numero1 === numeroAlReves){
-    return 'Es capicua'
-  } else{
-    return 'No es capicua'
-  }
+  var numero1= numero.toString()                    //¿porque tiene que ser afuera el if?--> El if está fuera para que compare con el número una vez se formó numeroAlReves y no cada vez que hace un ciclo. Si lo hiciera dentro del for, llegaría al if, no se cumpliría la condición y retornaría 'no es capicua' para cualquier valor que reciba la función.
+  for (let i = numero1.length-1; i>=0; i--) {       // ¿numero1 no tendria que ser [i-1]? --> (para poner numero1[i-1] no deberia poner el for for el .length - 1. y asi si funcionaria) Recordá que la propiedad .length representa la longitud de una cadena string, pero si la vemos como un arreglo, el primer índice es 0 y el último .length-1. Cuando le asigna a i el valor numero1.length-1 le esta dando la ultima posición de la string, si se le restara 1 a i, estaría representando la ultima posición - 1a posición(es decir, la ante ultima posicion) y estaríamos dejando atrás valores a tratar
+      numeroAlReves+= numero1[i]                    //¿porque la tengo que pasar a string?->El número se pasa a string para que te permita evaluar cada carácter que tenga. Recordá que un string se puede ver como un arreglo de caracteres.
+    }                                               // Ej: numero = 349; 
+    if(numero1 === numeroAlReves){                  // numero.toString() -> '349' -> ['3']['4']['9']                 
+      return 'Es capicua'                           //Esto te permite iterar sobre cada carácter y lograr darle la vuelta al número.
+    } else{
+      return 'No es capicua'
+    }                                                 
+  
   }
 
 
@@ -106,18 +107,18 @@ function deleteAbc(cadena){
  for ( var i=0; i <cadena.length; i++){
     if(cadena[i] !== 'a' && cadena[i] !== 'b' && cadena[i] !== 'c') {  // si yo pongo que sea estictamente igual, lo que hace es sumarlo y recibir abc, sin borrarlo
       canueva+= cadena[i]                                              // que explique esto y porque no usa el delete. yo lo habi pensado con todo estricta// igual.
-    }                                                 //usammo el and, porque cadena tien que ser distinta a todas. ponemos que sea distinta porque nos va a sumar todas las letras de cadena, menos las que dijimos.
-}                                                     // para formar la nueva cadena, si se encunetra con 'a' o 'b' o 'c', nos las suma. por eso es que no hace falta poner delete, porque como no me sumam esas letras en la nueva cadena no va a aparecer.
-return canueva;
+    }                                                 //usamos el and, porque cadena tiene que ser distinta a todas('a','b','c'). ponemos que sea distinta porque nos va a sumar todas las letras de cadena, menos las que dijimos.
+}                                                     // para formar la nueva cadena, si se encunetra con 'a' y 'b' y 'c', no las suma. por eso es que no hace falta poner delete, porque como no me suma esas letras en la nueva cadena no va a aparecer.
+return canueva;                                       // recumen, si no es difrente de esa letra es igual, entonces la condicion del if no se cumple, para que se cumpla los tres tienen que ser veraderos
 
 }
 function sortArray(arr) {
   //La función recibe una matriz de strings. Ordena la matriz en orden creciente de longitudes de cadena
   //Ej: Recibe ---> ["You", "are", "beautiful", "looking"] || Devuelve ---> [“You", "are", "looking", "beautiful"]
   //Escribe tu código aquí
-  return arr.sort(function(a,b){  // el sort ordena, ene este caso le estamos pidiendo que nos ordene de menor longitud a mayor longitud
+  return arr.sort(function(a,b){  // el sort ordena, en este caso le estamos pidiendo que nos ordene de menor longitud a mayor longitud
     return a.length - b.length    // entonces le hago length(longitud) de un elemento del array menos el otro. el sort por dentro recorre todo el array.
-  })                              // el - es para comparar
+  })                              // el - es para comparar  
 
 }
 function buscoInterseccion(arreglo1, arreglo2){
