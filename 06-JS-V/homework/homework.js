@@ -40,11 +40,11 @@ function agregarStringInvertida() {
   String.prototype.reverse = function(){          // pongo this porque haCE REFERENCIA A LA sTRING.
     var palabraInvertida= ""                      // pongo mayor a cero, porque tiene que arrancar en lo ultimo y se tiene que terminar cuando sea mayor
     for (let i = this.length; i > 0; i--) {       // pude haber puesto charAT(), que lo que hace es devolverte el caracter en el indice que le diga
-      palabraInvertida += this[i-1]
-    }
-    return palabraInvertida;
+      palabraInvertida += this[i-1]               //  como hago i= this.length; i>0; en vez de hacer this.length - 1 ; i>=0; y que directamente arranque de la ultima posicion del arrya le pongo el this[i-1]
+    }                                             // para que me sume palabraInvertida + palabraInvertida= this en la posicionn i menos uno  y no me tire undefined
+    return palabraInvertida                                          
   }
-
+   
 }
 
 // ---------------------------------------------------------------------------//
